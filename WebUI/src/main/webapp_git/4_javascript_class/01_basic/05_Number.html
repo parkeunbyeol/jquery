@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Number 형과 형변환 </title>
+<script type="text/javascript">
+
+
+// 1. 숫자 형식 메소드 
+/* var su = 123.456789;
+document.writeln( su.toExponential(2)  + "<br/>" );	
+document.writeln( su.toFixed(3)  + "<br/>" );		// 소수점만 자리수 
+document.writeln( su.toFixed(7) + "<br/>" );		// toFixed 소수점 자리수 관여
+document.writeln( su.toPrecision(6)  + "<br/>" );	// 정수 자리수부터 관여
+document.writeln( su.toPrecision(10)  + "<br/>" ); */	
+
+//-------------------------------------------------
+// 2. 형변환
+//var n = '123'; // 이 경우 전부 감지함 (값 처리 O)
+//var n = '123a'; // 이 경우 number에서 숫자로 감지 못함 (값 처리 X)
+/* var n = 'a123'; // 앞에 문자가 오면 전부 숫자 감지 못함 (값 처리 X)
+document.writeln( Number(n)  + "<br/>" );
+document.writeln( parseInt(n)  + "<br/>" );
+document.writeln( parseFloat(n) + "<br/>" );
+
+
+document.writeln( parseDouble(n) + "<br/>" ); // parseDouble 존재하지 않음
+document.writeln( '오늘도 행복합시다.<hr/>' );
+ */
+
+//[확인]
+// number + string ==> string / 숫자와 문자열을 더한 것을 확인하면 스트링(문자열)으로 바뀐다
+var v  = 123 + '4';
+document.writeln( v + '<br/>');
+document.writeln( typeof v + '<br/>');
+
+// number - string ==> number / 숫자와 문자열을 빼면 숫자(number)로 바뀐다.
+var v2  = 123 - '4';
+document.writeln( v2 + '<br/>');
+document.writeln( typeof v2 + '<br/>');
+
+ 
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+<!-- 
+	
+	컴파일 언어 : c, java
+			
+				source code (xxx.c, xxx.java)
+					-> 컴파일(번역) 파일 (xxx.obj, xxx.class)
+					
+				실행시는 컴파일 파일을 실행
+				즉, 자바는 에러가 있으면 실행조차 않는다. 
+				
+				
+	인터프리터언어 : python, javascript
+	
+				실행시 한 줄 읽으면서 실행
+				즉, 자바와 다르게 에러가 있어도 그 앞의 코드는 진행하면서 에러를 만났을 때 실행을 멈춘다.
+ -->

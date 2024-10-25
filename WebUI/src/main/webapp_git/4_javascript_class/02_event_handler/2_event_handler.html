@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 핸들러 연결 </title>
+
+<script type="text/javascript">
+
+window.onload = function(){
+	
+	var vbtn = document.getElementById('btn');
+ 	vbtn.onclick = function() {
+		alert('확인1');
+	} 
+ // 밑에 있는 화면들이 다 올라오면 그때 {}안에 있는 작업을 처리한다는 뜻.
+ // 12~13행의 내용이 아래 20~22행까지의 내용을 축약해서 만들어짐. 우리는 이걸 사용함.
+	
+ 	//vbtn.onclick = xxxx(); //->이 경우 호출하는 꼴이라 사용하면 안됨.
+
+ 	/* vbtn.onclick = xxxx;
+ 	function xxxx() {
+		alert('확인2');
+	} */
+
+}
+// window.onload 없이 실행하면 body태그 안에 있는 작업(화면에 띄우는)이 나중에 진행된다. 
+// 그러면 화면에 아무것도 안 뜬 상태에서 vbtn.onclick이 실행되면 null로 처리되어버림.
+	
+</script>
+ 
+  </head>
+ <body>
+	<input type='button' value='눌러'  id='btn' />
+ </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 3_3_first.html (본판)</title>
+<script type="text/javascript">
+window.onload = function(){
+	
+	winObj = window.open('3_3_second.html', 'cityWin', 'width=400 height=500');
+	// 실행하면 팝업창 같이 뜨게 하기
+	
+	// 콤보박스 이벤트 걸기
+	
+	var sel = frm.select;
+	//@@@@@@@@@@@@@@@@@@@@@@@
+	sel.onchange = function() {	// onchange는 바뀔때마다 이벤트를 만들어주는거니까@@@@@@@@@@@@@ for문 안써도대;;;;
+// 		alert(this.value);
+		winObj.sfrm.stext.value= this.value;
+	}
+	
+		
+		
+	
+
+
+}
+</script>
+</head>
+<body>
+
+
+
+
+<form name="frm">
+	<select	name='select'>
+		<option name='city' value='서울시'>서울시</option>
+		<option name='city' value='경기도'>경기도</option>
+		<option name='city' value='인천'>인천</option>
+	</select><br>
+	<input name='txt' type='text' size='20' ><br>
+</form>
+</body>
+</html>

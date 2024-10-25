@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 핸들러 연결 </title>
+<script type="text/javascript">
+
+// 요즘엔 잘 안씀.
+// 스크립트에서 함수 = function
+// body태그 안에 onclick='btn_click()'을 호출
+
+/* 
+	function btn_click(){ 
+	alert('확인');
+	}
+*/
+
+// 자바스크립트에서 함수는 자료형이다. -> 그래서 변수에 지정 가능
+// btn_clickf라는 변수에 function(){} 설정함
+var btn_click = function(){
+	alert('확인2');
+}
+
+</script>
+
+</head>
+
+<body>
+	<input type='button' value='눌려' onclick='btn_click()' />
+</body>
+</html>

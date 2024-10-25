@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> emp.html </title>
+    
+    <!-- 부트스트랩 -->
+    <link href="../3_bootstrap_class/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+	<h2 class='text-primary'> 회사 </h2>
+	<form action='server.jsp' method="post" >
+		<div class='form-group'>
+		<label for="empno"> 사번 </label>
+			<input class='form-control' type='text' id='empno' name='empno' placeholder="사번">
+		</div>
+		
+		<div class='form-group'>
+		<label for='ename'> 이름 </label>
+			<input class='form-control' type='text' id='ename' name='ename' placeholder="이름">
+		</div>
+			
+		<div class='form-group'>	
+		<label for='job'> 업무 </label>	
+			<input class='form-control' type='text' id='job' name='job' placeholder="업무">
+		</div>
+		
+		<div class='form-group'>	
+		<label for='sal'> 월급 </label>	
+			<input class='form-control' type='text' id='sal' name='sal' placeholder="월급">
+		</div>
+			
+		<div class='form-group'>	
+		<label for='deptno'> 부서번호 </label>
+			<input class='form-control' type='text' id='deptno' name='deptno' placeholder="부서번호">
+		</div>
+		
+		<div class='form-gruop'>
+		<button type="submit" class='btn btn-info'> 전송 </button>
+	  	</div>
+	</form>
+
+</body>
+</html>
+
+<!-- 
+[1] 화면구성
+	- 사번,이름, 업무, 월급, 부서번호를 입력받아서 서버에 전송할 수 있는 화면 구현
+	- [hint] form 태그 이용
+ -->

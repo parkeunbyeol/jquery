@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title> 첫 연습 </title>
+
+<style type="text/css">
+
+	.active {
+		border : 3px solid red;
+		outline : 3px solid red;
+	}
+
+</style>	
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- CDN방식: 네트워크 없이 실행하는 방법 -->
+
+<script type="text/javascript">
+ $(function(){
+	 //------------------(1)
+// 	 $('.man').css({'background' : 'pink'});
+// 	 $('.woman').css({'background' : 'black'
+// 		 			,'color' : 'pink'});
+	
+	//--------------------(2)
+	let redBox = $('.inputText'); 
+	redBox.focus(function(){		// redBox에다가 포커스 이벤트 걸기
+		$(this).addClass('active');	// 이벤트가 발생한 얘!= $(this)에다가 active라는 클래스를 추가해줌. $(this)를 안쓰면 redBox가 의미하는 것이 클래스가
+									// inputText인 애들이 다 오기 떄문에 세 개나 걸려버린다.
+									// 이때 난 누른 것만 불러내고 싶으니까 $(this)를 사용하여 눌려진 얘만 특정한다.
+	}); 
+	// focus <-> blur
+	redBox.blur(function(){			// redBox에 블러 이벤트 걸기
+		$(this).removeClass('active');	// 이벤트가 걸려진 redBox = $(this)에 클래스를 지운다. 어떤 클래스? 'active'라는 클래스
+	})
+	
+	//-----------------------(3)
+	// 자바스크립트에서는 : innerHTML
+	// 제이쿼리 	: text() / html() 총 두 가지로 나눠짐 ,사이사이에 글자넣을래? 사이사이에 태그넣을래?
+			
+	
+	// 제이쿼리 setter() / getter()=> 동일한 함수
+	// ` text() 	: getter() 역할
+	// ` text(인자)	: setter() 역할
+	// ->> 즉 텍스트에 인자를 넣으면 셋터역할을 하고 없으면 게터역할을 한다. 인자의 유무에 따라 게터세터로 나뉨
+
+ 
+// 	alert( $('#divText').text() );	// id가 divText인걸 찾아서 텍스트 걸기
+	$('#divText').text('<img src="images/grim.jpg">'); // '여기에 글씨를'을 img src~~~라는 문자열로 바꿈
+	$('#divHtml').html('<img src="images/grim.jpg">'); // '여기에 그림을'을 태그로 인식함-> html()을 사용하면 태그
+ 
+ 	$('#divEmpty').empty(); // 원래 있던 글씨는 없애고 태그 사이에 공간도 삭제
+ 	
+//  	$('#changeGrim').click(function(){
+// //  		alert('ok');
+// 		$(this).attr('src', 'images/cat.jpg') // attr( 속성 값 , 바꾸고 싶은거) 는 속성값을 바꾸고 싶은거로 바꾸게 하는 역할을 함 
+//  	})
+
+		$('#changeGrim').hover(function(){
+			$(this).attr('src', 'images/cat.jpg')
+			
+		} ,function(){
+			$(this).attr('src', 'images/puppy.jpg')
+		})
+ 	//-------------------------------------------------------------------(4)
+ 	// text()/html(): <요소></요소> 사이의 값을 얻어올 때
+ 	// val(): value 속성의 값을 얻어올 때 (주로 사용자 입력값이나 선택값)
+ 	
+//  	$('#tf').val('박길동'); // val()은 getter역할 val('박길동')은 setter 이므로 박길동이라는 문자열을 밸류값으로 넣어주겠다.
+
+ 	
+	 //확인버튼이 눌렸을때
+	 $('#check').click(function(){
+// 		alert('ok') 
+		
+		var irum = $('#tf').val();  // 사용자가 tf에 입력한 값을 irum에 지정
+		var sel = $('#sel').val();
+		var sel_m = $('#sel_m').find('option:selected').text();
+		var sex = $('input[name="gender"]:checked').val(); // 성별 선택값
+			// 인풋태그 중에서 네임 속성 값이 gender인 얘!중에서 그 중에 체크된 얘를 가져온다.
+			// 라디오버튼을 value값을 안주고 val()을 사용하면 원하는 값이 안나온다.
+			// 내가 따로 벨류 값을 줘야 체크를 했을 때의 값을 벨류값으로 가져오니까 꼭 벨류 값 주기
+		
+		var msg = '';
+		msg += '이름은 ' + irum + '\n' + '주소는 ' + sel + '\n'
+				+ '가고싶은 섬은 ' + sel_m + '\n'
+				+ '성별은 ' + sex;
+		
+		alert(msg);
+		
+	 });
+	 
+	// '초기화' 버튼이 눌렸을 때
+		$('#init').click(function(){
+			
+			$('#tf').val('저는 아무개 입니다.');
+			
+			// 메세지 창에는 '오늘은 뭐 드세요?' 출력
+			$('#ta').val('오늘은 뭐 먹어?');
+			
+			// 주소 1 : '마산' 선택
+			$('#sel').val('masan');
+			
+			// 주소 2 : '울릉도', '독도' 선택
+			$('#sel_m').val(['seom2' , 'seom3']); // 여러개를 선택할때는 배열[]로 지정해야함
+			
+			// 라디오 버튼 여자 선택
+			$('input[name="gender"]:eq(1)').attr('checked', 'true')
+			// 자바스크립트에선 nth-of-child 과 같은 역할이 eq()이다.
+			// attr=속성 값을 추가한다. 즉 여기선 checked해서 true로 만든다. 라디오 버튼은 눌려지면 true값이다
+					
+		});
+			
+ 	//-----------------------------------(5)
+ 	
+ 	let actor = $('#actor');
+ 	let tae   = $('#tae');
+ 	let su	  = $('#su');
+ 	let bin	  = $('#bin');
+ 	
+ 	actor.append(tae);	// actor에 tae를 자식으로 붙임 append
+ 	su.appendTo(actor);	// su를 actor에 자식으로 붙임 appendTo
+ 	
+ 	actor.append('<div>한배우</div>');	
+ 	$('<div>박배우</div>').appendTo(actor);
+ 	
+ 	var n = $('<div/>'); // 새로운 <div> 객체 생성
+ 	n.text('최배우');		// 만든 <div>에다가 '최배우'라는 텍스트를 붙였다
+ 	actor.append(n);	// 그리고 그걸 actor에다 붙임
+ 	
+ 	 	
+ 	//-----------------------------------------(6)
+ 	
+ 	// class가 data인 얘를 클릭이벤트 걸기
+ 	$('.data').each(function(){		// each()는 함수에 해당하는 얘가 여러개 일 때 하나씩 각각 함수를 적용해주는 함수다.
+ 	
+ 	 	$('.data').click(function(){
+ 	 		
+ 	 		alert( $(this).text() ); 		// $(this) = 이벤트가 발생한 얘. 여기선 눌린 애
+ 	 		 	
+ 		});	 		
+ 	})
+ 	
+ 	
+ });	// end of $(function(){})
+
+ 
+
+</script>
+
+<!-- 
+	[중요]
+	
+	var n = $('#div');		// <요소 id = 'div'/>  -> 아이디가 div으로 된 걸
+	var n = $('.div');		// <요소 class ='div'/>	 ->클래스가 div으로 된 걸
+	var n = $('div');		// <div></div> 요소	-> 요소가  div 으로 된 걸 
+
+	--------------------
+	var n = $('<div/>')		// div 새로운 객체 생성
+ -->
+
+</head>
+<body>
+	<!--  1 -->
+	<ul>
+		<li class="man">김수현</li>
+		<li class="woman">배수지</li>
+		<li class="woman">김태리</li>
+		<li class="man">박보검</li>
+		<li class="woman">김태희</li>
+	</ul>
+	<!-- 2 -->
+	<input type="text" class="inputText"/>
+	<input type="text" class="inputText"/>
+	<input type="text" class="inputText"/>
+	
+
+	<!-- 3 -->
+		<div id="divText">여기에 글씨를</div>
+		<div id="divHtml">여기에 그림을</div>	
+		<div id="divEmpty">여기를 비움</div>
+		<p>
+		<img src="images/dongsuk.JPG" id='changeGrim' width= 270 height=270 >
+		</p>
+		
+	<!-- 4 -->	
+		<p>
+		이름 : <input id="tf" type="text" size="20" value='홍길동' /><br/>
+		메세지 : <textarea id="ta" rows="3" cols="20"></textarea><br/>
+		주소 : <select id="sel">
+			<option value="seoul">서울</option>	<!-- option에 value 값 없어도 됨 -->
+			<option value="busan">부산</option>
+			<option value="masan">마산</option>
+			<option value="incheon">인천</option>
+		</select>
+		<select id="sel_m" multiple="multiple">
+			<option value="seom1">제주도</option>
+			<option value="seom2">울릉도</option>
+			<option value="seom3">독도</option>
+			<option value="seom4">거제도</option>
+		</select><br/>
+		
+		성별 : <input type='radio' name='gender' value='남자'>남자
+			 <input type ='radio' name='gender' value= '여자'>여자<br/>
+		
+		<input type='button' id='check' value='확인'/>
+		<input type='button' id='init' value='초기화'/> 
+		<div id='result'></div>
+		</p>
+		
+	<!-- 5 -->
+		<div id="actor">배우</div>
+		<div id="tae">김태희</div>
+		<div id="su">김수현</div>
+		<div id="bin">현빈</div>
+
+
+	<!-- 6 -->
+		<div class="data">이름</div>
+		<div class="data">직업</div>
+		<div class="data">나이</div>
+
+	
+</body>
+</html>

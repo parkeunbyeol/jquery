@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#profile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+}
+
+h3 { color: pink; }	
+
+img {
+	border : 2px solid #dbdbcc;
+	margin : 30px;
+	width	: 100px;
+	height	: 100px;
+}

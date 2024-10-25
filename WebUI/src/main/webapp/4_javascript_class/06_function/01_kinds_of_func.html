@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 함수 만들기</title>
+	<script>
+	// 1. function 명령어로 처리 -> first() 퍼스트 함수를 부른다.
+	function first(){
+		var txt = document.getElementById('first');
+		txt.style.background = 'red';
+		txt.style.color = 'yellow';
+	}
+	
+
+	// 2. 함수 리터럴
+	var second = function(){
+		var txt = document.getElementById('second');
+		txt.style.background = 'black';
+		txt.style.color = 'pink';		
+	}
+	
+	// 3. 함수 애로우
+	var third = ()=> {
+		var txt = document.getElementById('third');
+		txt.style.background = 'purple';
+		txt.style.color = 'white';				
+	}
+	
+	
+	
+	</script>
+</head>
+
+<body>
+	<p> <span id="first"> 1. function 명령 </span>
+		<input type="button" value="확인" onclick="javascript:first()"/>
+	</p>
+	<p> <span id="second"> 2. 함수 리터럴 </span>
+		<input type="button" value="확인" onclick="javascript:second()"/>
+	</p>
+	<p> <span id="third"> 3. 애로우 함수 </span>
+		<input type="button" value="확인" onclick="javascript:third()"/>
+	</p>
+</body>
+</html>

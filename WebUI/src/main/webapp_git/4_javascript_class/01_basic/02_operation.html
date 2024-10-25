@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 연산자</title>
+<script type="text/javascript">
+
+//1.  실수형 계산에는 주의 -> 2진수로 변환하여 저장하고 연산하기 때문에 발생@@@@@@@@@@@@@@@@@
+document.write(0.2 * 3 == 0.6);  // false
+// document.write(0.2 * 3);
+
+
+document.write(0.2 * 3 * 10 == 0.6 * 10);  // false => 이미 0.2*3을 하면 6.0001과 같이 이미 실수형이 된 상태로 10을 곱해봤자 실수형이다. 
+document.write(0.2 * 10 * 3 == 0.6 * 10);  // true  => 이 경우는 0.2*10을 하여 실수형에서 정수형으로 바꿔준 뒤 3을 곱하니 정수형으로 나온다.
+document.write('<br/>');
+// 9행과 12행의 값은 다르다.
+//자바스크립트로 실수형을 계산하면 0.00000001과 비슷한 문제가 발생->이를 막기 위해 10을 곱하여 실수를 정수형으로 바꿔줌 !!!!!!!!!!
+
+
+//2.==와 === 차이는?
+var num = 10;
+var str = '10';
+
+if( num == str) document.write('같다<br/>');
+else document.write('다르다<br/>'); // == 이 경우 같다 나옴 (즉. 자료형을 안따짐)
+		
+if( num === str) document.write('같다2<br/>');
+else document.write('다르다2<br/>');	// === 이 경우 다르다 나옴 (즉, 자료형을 따짐)	
+		
+// 자료형 따질거면 ===이거 쓰셈. 안 따질거면 == 이거 쓰셈		
+		
+// 3. 기본형(은 값을 비교함)과 참조형(은 주소를 비교함)
+var a = 10;
+var b = 10;
+if( a == b) document.write('같다3<br/>');
+else document.write('다르다3<br/>');
+
+
+var a = [1,2,3];
+var b = [1,2,3];
+if( a == b) document.write('같다4<br/>');
+else document.write('다르다4<br/>');
+// 얘는 다르다4 왜냐면 참조형은 값을 찾아가는 주소를 알려주기 때문. 즉 a를 찾아가는 주소와 b를 찾아가는 주소가 다르므로 var a, var b의 갑은 다르다!!!!!
+
+var a = 'Hello';
+var b = 'Hello';
+if( a == b) document.write('같다5<br/>');
+else document.write('다르다5<br/>');
+// 자바에서 string은 참조형이고 스크립트는 기본형으로 취급한다. 
+// 그래서 이 경우 같다5가 나옴@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  중요함  @@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+// 4. boolean형
+/* document.write( ( 1 == true) + '<br/>'); // true
+document.write( ( 0 == true) + '<br/>'); // false
+
+// 자바 스크립트에선 1은 true, 0은 false 나머지는 취급 안함 그냥 외우기 */
+
+// 5. 삼항 연산자
+/*
+var num = 1000; // num의 타입이 number니?? -> true면 num을 실행하고 false면 '숫자를 입력하세요'
+var result = ( (typeof num === 'number') ? num : '숫자를 입력하세요' );
+// ?을 기준으로 ( )가 조건문이고 ? 뒤에 있는 _변수명(여기선 num)_ : _B_ 는 num이 있는 앞쪽이 true, 뒤에 B가 적힌 곳이 false로 정의 된다. 
+// 이때의 값이 result로 들어가게 됨 , 숫자는 num 그 외에는 string이 들어간다
+
+document.write('결과:' + result + '<br/>' ); 
+*/
+
+
+// [참고] false로 판단되는 값들
+var a = 0;
+if(a) document.write( true +'<br/>');
+else document.write( false +'<br/>');
+
+var a = null;
+if(a) document.write( true +'<br/>');
+else  document.write( false +'<br/>');
+
+var a = undefined;
+if(a) document.write( true +'<br/>');
+else  document.write( false +'<br/>');
+
+var a = NaN; // Not a Number
+if(a) document.write( true +'<br/>');
+else  document.write( false +'<br/>');
+
+var a = '' ; // empty string
+if(a) document.write( true +'<br/>');
+else  document.write( false +'<br/>');
+
+// 즉 var이 0, null, undefined, NaN, ''(빈문자열 / 공백을 주게 되면 하나의 문자열이 되므로 공백 주면 true로 나옴=공백도 문자다))
+
+document.write('<hr/>');
+document.write( (false == 0) + '<br/>'); //	true. false랑 0을 같은 값으로 취급
+document.write( (false == null) + '<br/>'); // false
+document.write( (false == undefined) + '<br/>'); // false
+document.write( (false == NaN) + '<br/>'); // false
+document.write( (false == '') + '<br/>'); // true
+// 그냥 외워
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

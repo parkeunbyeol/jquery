@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Javascript 객체지향 </title>
+</head>
+<body>
+<script>
+
+/* [ 참고 ]
+	(1) 함수
+		- 선언
+			function func(){}	// 함수로 만들었다면 func(){}로 함수명을 소문자를 시작해서 사용
+		- 호출
+			func();
+		
+	(2) 클래스
+		- 선언
+			function Func(){} 	// 클래스로 만들었다면 FUNC(){}로 클래스명을 대문자로 시작해서 사용
+		- 객체 생성
+			var a = new Func(){};
+
+*/
+/* 
+//0. 	클래스 선언 -  생성자로 초기화하기
+function Student(id, name, dept){	// 얘는 Student로 대문자로 시작했으니 클래스로 사용
+	this.id = id;
+	this.name = name;
+	this.dept = dept;
+	
+	this.display =function(){
+		var str  = "학번: "+id;
+		str += "/이름:" + name;
+		str += "/학과:" + dept + "<br/>"; 
+		return   str;
+	}
+}
+
+var kim = new Student("001","김길동", "컴공");
+var lee = new Student("002","이길동", "경영");
+
+document.write( kim.display() );
+document.write( lee.display() );
+ */
+ 
+ 
+ /* [ 요구사항 ]
+ 	 Student 클래스 선언
+ 	 생성자로 이름, 국어, 영어, 수학점수를 받아서 멤버 변수로 초기화
+ 	 멤버함수로 sum() 구현 : 전체 과목을 더한 값을 리턴
+ */
+ 
+//  function Student(name, kor, eng, math){		// 옛날 방식
+let Student =function (name, kor, eng, math){	// 요즘 방식
+ 		this.name 	= name; // this.멤버변수 = 매개변수
+ 		this.kor	= kor;
+ 		this.eng	= eng;
+ 		this.math	= math;
+ 		
+ 		this.sum 	= function(){
+ 						return this.kor + this.eng + this.math;
+			 		}
+ 		 
+ 	}
+ 
+let s1 = new Student('홍길동', 98,78,68); // 클래스를 만들었으니 객체를 생성
+document.write(s1.name + '님은' + s1.sum() + '점입니다.<br/>');
+ 
+let s2 = new Student('박길동', 50, 50, 50); // 얘도 객체를 생성
+document.write(s2.name + '님은' + s2.sum() + '점입니다.<br/>');
+
+// s1객체에 동적인 추가 = s1에 showInfo라는 함수 추가함
+/* s1.showInfo = function(){
+				return this.name + '==>' + this.sum();	
+			  }
+ */ 
+
+ // Student 클래스에 동적으로 추가 (prototype) 
+//  ==> 객체에 동적 추가를 할 때에는  73행처럼 .을 이용해서 함수를 추가하면 되는데
+// 클래스에 동적 추가를 하고 싶을 때에는 클래스의 공통의 영역인 prootype을 이용해야지 추가가 된다.
+ Student.prototype.showInfo = function(){
+					return this.name + "==>" + this.sum();	
+ 				}
+ document.write(s1.showInfo());
+ 
+//  document.write( s1['showInfo']() ); //아래랑 같은 내용
+ document.write( s1.showInfo() );
+ 
+// 에러발생 : s1객체에 추가했기에 s2객체에는 없음 
+document.write( s2['showInfo']() ); // s2에는 showInfo없음 (showInfo는 s1에 붙임)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</script>
+</body>
+</html>

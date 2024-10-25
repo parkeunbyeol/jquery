@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Map / Set 내장 객체 </title>
+<script type="text/javascript">
+
+// 1. Map : 키와 값으로 관리하는 객체
+let m = new Map();
+m.set('java','1111');
+m.set('script','2222');
+m.set('nodejs', '2222');
+m.set('java','3333'); // 10행의 키 값인 'java'와 키 값이 서로 같으므로 값이 '1111'에서 '3333'으로 덮어짐
+
+for( let n of m ) {
+	document.write( n + '<br/>');	
+}
+
+// 로그인 확인 연습
+let inputId = 'java';
+let inputPw = '3333';
+
+
+for( let [key, value] of m ) {
+	
+	if( key === inputId & value === inputPw){
+		document.write('로그인 성공 <br/>');
+		break;
+	}else{
+		document.write('로그인 실패 <br/>');
+	}
+}
+
+
+/* for( let [key, value] of m ) {
+	document.write( key + '<br/>');
+	document.write( value + '<hr/>');
+} */ 
+
+/* for( let n in m ) {
+	document.write( n + '<br/>');
+}  */
+ 
+ 
+//-------------------------------------------------------
+// 2. Set  : 중복 값을 허용하지 않는 집합 관리 객체
+let s = new Set();
+s.add('tiger');
+s.add('dog');
+s.add('lion');
+s.add('dog');
+
+for( let item of s ) {
+	document.write( item + '<br/>');
+}
+
+
+/* for( let item in s ) {
+	document.write( item + '<br/>');
+}/// 키 값을 뽑아오는 in은 사용 안되고, 지금은 인덱스도 없다 */
+
+let lotto = new Set();
+
+while( lotto.size < 6 ){
+	lotto.add( parseInt ( Math.random() *45 ) +1 );
+				// parseInt를 붙이는 이유 = Math.random은 0.0~1.0사이의 실수가 나오기 때문에 정수로 바꿔주기 위해
+				// *45를 해주면 0이상 45미만으로 나옴 때문에 +1을 해주어 1이상 46미만까지 나옴! 
+}
+
+for( let item of lotto ){
+	document.write(item + '/');
+} 
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

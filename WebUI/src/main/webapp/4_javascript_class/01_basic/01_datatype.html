@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 자료형</title>
+<script type="text/javascript">
+
+
+// 자바스크립트는 number 수치형을 사용 정수형 실수형 따로 나뉘지 않음 -> 더 편함~~ 자바는 나누잖어
+
+// 자바 스크립트에는 var, const, let 이렇게 세가지 있음. 다음은 각자의 특징들
+
+/* 1. 자바스크립트는 데이터타입에 관대하다
+     변수를 선언할 때 데이타타입을 정하지 않는다
+		(1) 변수 선언 : var
+*/
+/* 	var byensu = '문자열';
+	console.log("변수의 값 :" + byensu);
+	document.write("변수의 값: " + byensu + "<br/>");
+	document.write( typeof byensu);
+	
+	// document.write 는 단순히 개발자모드 안열고 바로 내가 확인하려고 쓰는 것. 우리는 지금 화면에 띄울 창이 없으므로 확인용으로 사용한다. 
+	
+	byensu = 1000;
+	document.write("변수의 값: " + byensu + "<br/>");
+	document.write( typeof byensu );
+
+	var byensu = 35.6;
+	document.write("변수의 값:" + byensu + "<br/>");
+	document.write( typeof byensu ); */
+	
+	// 자바스크립트는 알아서 형 변환을 해준다. 때문에 자바처럼 int string 과 같이 자료형을 안 적고 var를 사용하면 된다. 그리고 변수명 중복 가능  (let과의 차이)
+
+
+	
+/*   (2) let  (es6)
+ 		- 변수의 중복 선언을 허용하지 않는다
+ 		- 블럭 범위(scope)를 인식한다 -> 나중에 확인
+ */
+
+/* 	let byensu = '문자열';
+	console.log("변수의 값 :" + byensu);
+	document.write("변수의 값: " + byensu + "<br/>");
+	document.write( typeof byensu);
+ 
+	byensu = 1000;
+	document.write("변수의 값: " + byensu + "<br/>");
+	document.write( typeof byensu );
+	
+	var byensu = 35.6; // 35행과 변수 중복 됐음 -> 오류 
+	document.write("변수의 값:" + byensu + "<br/>");
+	document.write( typeof byensu ); */
+
+	// let은 변수명 중복이 안된다. 그래서 41열에 오류남.
+	
+	
+	
+	
+ /* (3) const : 상수선언 (es6)
+	- 값을 재대입 금지
+	- 명명 권장 : 모두 대문자에 단어사이는 _로 표시
+*/
+
+/* 	const byensu = '문자열';
+	console.log("변수의 값 :" + byensu);
+	document.write("변수의 값: " + byensu + "<br/>");
+	document.write( typeof byensu);
+	
+	byensu = 1000;
+	document.write("변수의 값: " + byensu + "<br/>");
+	document.write( typeof byensu );
+ */
+	//63행부터 변수 값을 1000으로 변경함 -> const의 경우 오류가 남 / 왜냐면 값을 재대입 하면 안된다. 여기서는 빨간 줄이 안뜨지만 브라우저로 확인하면 에러남
+ 
+	
+	// [참고만 합시다!!]
+	
+/* 	const data = [1,2,3]; */
+	//data = [11,22,33];
+	// const는 상수를 선언함 -> 그리고 값 재대입 안됨 즉, 위에 코드는 오류난다
+ 
+/* 	data[1]=100;
+	document.write(data); */
+	// 이 경우는 가능하다. 왜냐면 1,2,3으로 배열이 되어있는 곳에 data[1]은 1배열을 가르키는 주소가 있는 것. 
+	// 78행은 그 주소가 가르키는 주소의 공간 즉, 1열의 데이터 저장공간(안의 내용을)에 100을 넣는 것이므로 가능하다
+	// 75행이 안되는 것은 배열 1,2,3으로 주었던 것을 11,22,33으로 바꿔버리는 것이기 때문에 안된다.
+	
+//----------------------------------------------------------------
+// 2. 리터럴 - 변수의 값
+/* var   arr = [ '안녕', 'Hello', '아쌀라무 알라이꿈', 'Hola' ];
+document.write('배열의 값:' + arr[2] + "<br/>");
+ 		
+var   arr2 = [ '안녕', [ 'Hello', '아쌀라무 알라이꿈' ], '곤니찌와' ];
+document.write('배열의 값:' + arr2[1][1] + "<br/>"); */
+
+/* var  obj = { x : '안녕',  y : 'Hello' ,  z : '곤니찌와' };
+document.write('객체의 값:' + obj.x + "<br/>"); 
+// obj. 은 obj안에 있는 것을 뜻함 ex) obj.x는 obj안에 있는 x에 대한 것
+document.write('객체의 값:' + obj['x'] + "<br/>"); */ 
+// 93행과 같은 것임, 대신 x가 문자열인 경우 사용 ex)외부에서 데이터를 받아올 때 문자열인 경우가 많다.
+
+/* var abc;
+document.write(abc); */
+//자바의 경우는 abc에 값이 없으니 null관 관련된 오류가 남. 하지만 자바스크립트의 경우 undefined가 나옴 오류라 보지 않고 하나의 값으로 생각하면 됨.
+
+/* document.write('객체의 값:' + obj.a + "<br/>"); */
+// 이경우도 undefined가 나온다. 왜냐면 obj에는 96행처럼 x,y,z 개행만 있고 a는 없기 때문
+
+//-------------------------------------------------------
+/* 3. 분할 대입 (destructuring assignment) : (es6)
+ 			- 배열과 객체의 요소를 분할하는 부분
+ 		(1) 배열 분할
+ */
+ var data = [10, 20, 30, 40, 50];
+ var a0 = data[0];
+ var a1 = data[1];
+ var a2 = data[2];
+ document.writeln(a0+ a1+ a2 + "<br/>");  // 10+20+30을 더한 60출력
+ console.log(a0, a1, a2 )
+ 
+ var [a,b,c] = [10, 20, 30, 40, 50];
+ document.writeln(a + "<br/>"); 
+ document.writeln(c + "<br/>");
+
+ var [a,b, ... other] = [10, 20, 30, 40, 50];
+ document.writeln(a + "<br/>"); 
+ document.writeln(other + "<br/>"); // ... other의 결과 값이 나옴 즉, ...other를 사용하면 객체를 지정한 것 외의 값들이 나온다. 편함ㅋ
+ 
+let v1 = 100;
+let v2 = 200;
+ 
+ [v2, v1] = [v1, v2];
+ // v1과 v2의 값 변경 하는 방법. 자바보다 개편함
+ 
+ document.write('v1: ' + v1 + "v2: " + v2 + "<br/>");
+ 
+ /*  (2) 객체 분할
+  */
+
+ let book = { title: '채식주의자', publish:'문학', price:1000 };
+ let { price, title, writer='작가미상'} = book;
+ document.write('제목:' + title + "<br/>");
+ document.write('가격:' + price + "<br/>");
+ document.write('작가:' + writer + "<br/>"); 
+ // writer은 book에 없음 대신 141행처럼 writer에 값을 넣어주면(초기화) 그 값으로 출력이 된다. 안넣어주면 안나옴
+ // 분할 즉, 내가 원하는 것만 뽑아 낼 수 있다. 어차피 이름으로 찾기 때문에 순서도 상관 없다.
+  
+</script>
+</head>
+<body>
+
+</body>
+</html>

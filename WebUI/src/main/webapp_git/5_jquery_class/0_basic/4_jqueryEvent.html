@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery event</title>
+
+<style type="text/css">
+	.bg { background : yellow; }
+	.border { border : 3px dotted red; }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+// 	$('li').click(function(){});	// 축약형
+	
+// 	$('li').bind('click', function(){
+// 		$('#result').text( $(this).text() )		
+// 	});
+	
+// 	$('li').one('click', function(){
+// 		$('#result').text( $(this).text() );		
+// 	});			// one()은 한 번 누른 뒤 같은 걸 한 번 더 누르면 안 눌려짐. 즉 한 번만 누를 수 있음
+	
+// 	$('li').click(function(){	// li 요소를 찾는 것@@@@@@@@@@
+// 		$('#result').text( $(this).text() );		
+// 	});
+	
+	//******************************************************개중요
+	// 동적으로 생성된 요소에 이벤트 걸기
+	//******************************************************************************
+	$('ul').on('click', 'li', function(){		// 이벤트 걸고, 동적인 이벤트 작동하고, function함수와 연결된다.
+		$('#result').text( $(this).text() );	// on() = 동적으로 만든 이벤트를 누르면 또 작동하게 만들어줌 -> 원래는 작동 안됨
+	}); 
+	
+	$('h1').click(function(){
+// 		var li = $('<li/>');  // li 객체 생성한 것 @@@@@@@-> 26행과 다름 
+// 		li.text(new Date());	// <li>날짜시간</li> => 이렇게 만든다는 것 
+// 		$('ul').append(li);
+
+// 		$('ul').append(  $('<li/>').text(new Date())  ); // 38~40행을 줄인 거
+		
+	});
+	$('h1').css({'cursor' : 'pointer'}); // 커서를 손모양으로 바꿔 줌  -> 원래는 I 모양
+	
+})
+
+
+</script>
+
+</head>
+<body>
+	<h1>제이쿼리 이벤트</h1>
+	 <ul>
+		<li>부에노스 아이레스</li>
+		<li>바르셀로나</li>
+		<li>리마</li>
+		<li>라파스</li>
+	 </ul>	
+	<div id="result"></div>
+</body>
+</html>

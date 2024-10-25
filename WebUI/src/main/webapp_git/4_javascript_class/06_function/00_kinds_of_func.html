@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 함수 3가지</title>
+	<script>
+	// 1. function 명령(선언)	// 가장 많이 사용하는 방식
+		
+/* 		function triangle(base, height) {
+			return base*height/2;
+		}
+		
+		document.write('삼각형의 면적은' + triangle(2,3) + '<br/>');
+ */		
+	
+	 
+	 	 
+	// 2. 함수리터럴   * 리터럴 : 변수의 값		
+			
+/* 	 	var triangle = function (base, height){		// 함수 자체가 변수로 들어갈 수 있다.
+							return base*height/2;
+						};
+		
+		document.write('2. 삼각형의 면적은' + triangle(2,3) + '<br/>');
+ */	 	
+	
+ 
+ 	// 3. 애로우함수 // 함수 리터럴을 조금 변형시킴. 함수라는 표시를 해주기 위해 '=>'를 사용한다.		
+		 
+/* 	 	var triangle = (base,height) => {
+											return base*height/2;	
+										};
+							// 함수 리터럴을 조금 변형시킴. 함수라는 표시를 해주기 위해 '=>'를 사용한다.		
+		document.write(' 3. 삼각형의 면적은 ' + triangle(2,3) + '<br/>');
+ */		 
+		
+		   
+/* 		const func = (arg) => {
+								 return arg*100;	 
+							   }
+									 
+		 document.write('화살표 함수 : ' + func(2) + '<br/>');
+ */		  
+		 
+		 // 화살표 함수에서 인자가 1개인 경우는 ( ) 생략 가능
+/* 		 const func = arg => {							// 38행과 비교하면 괄호가 없다. 왜냐면 인자가 한 개라서 생략이 가능하기때문.
+								return arg*200;	 
+							 }
+		 document.write('화살표 함수 : ' + func(2) + '<br/>');
+ */		
+		 
+		 // 함수 안에 코드가 return 만 있는 경우 {} 과 return 생략가능
+/* 	 	 const func = arg => arg*200;
+			 
+		 document.write('화살표 함수 : ' + func(2) + '<br/>');
+ */	   
+
+	   	
+	   	// 1. function 명령어
+	   	
+/* 	   	function add (x, y){
+			   return x+y;
+		}
+ */						   
+	   	
+	   	// 2. 함수 리터럴 : 변수의 값
+/* 	   	var add = function (x, y){
+					 return x+y;
+				  };
+ */								   	
+	   	
+	   	// 3. 애로우 함수
+/* 	   	var add = (x,y) => {
+						   	return x+y;					
+						   	};
+ */						   
+
+// 		var add = (x,y) =>  x+y;	// 인자가 X,Y 총 2개 이므로 ()는 생략 못함				
+						   	
+
+	   	
+	  	const result = add(1,2);
+		document.write('결과 : ' + result);
+	   
+	   
+	 
+	 
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

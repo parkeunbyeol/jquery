@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>3_3_second.html (팝업창)</title>
+<script type="text/javascript">
+window.onload = function(){
+	// 라디오버튼에 이벤트 걸기
+	
+	var rbt = sfrm.rb;
+		for( let i = 0; i<rbt.length ; i++){
+			rbt[i].onclick = function(){
+// 				alert('ok');
+				opener.frm.txt.value = this.value;
+			}	
+		}	
+	
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+<form name='sfrm'>
+	<input type="text"	name='stext' size='20'><br>
+	
+	<input type ="radio" name='rb' value='가산'>가산<br>
+	<input type ="radio" name='rb' value='판교'>판교<br>
+	<input type ="radio" name='rb' value='부평'>부평<br>
+</form>
+
+</body>
+</html>

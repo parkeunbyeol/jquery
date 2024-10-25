@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Date 객체</title>
+<script type="text/javascript">	
+ 	
+	var d = new Date('2024/12/25');
+	document.writeln( d  + '<br/>');
+	document.writeln( d.getYear()  + '<br/>');
+	document.writeln( d.getFullYear()  + '<br/>');
+	document.writeln( d.getMonth()  + '<br/>');
+	document.writeln( d.getDate()  + '<br/>');
+	document.writeln( d.getDay()  + '<br/>');
+
+
+	var d = new Date(); // 아무것도 지정 안할 시 현재 날짜 및 시간 나옴
+	// setter를 이용하여 날짜, 시간 지정
+	
+	d.setFullYear(2024); // 연도를 뽑아내고 싶으면 FullYear사용
+	
+	// d.setMonth(12); -> 12로 지정하면 0부터 포함해서 13으로 취급됨. 그래서 -1을 한 값인 11을 넣어줘야함*****************
+	d.setMonth(11); // --> 12월로 나옴***********************
+	d.setDate(25);
+	document.writeln( d  + '<br/>');
+	document.writeln( d.toLocaleString()  + '<br/>');
+	document.writeln( d.toGMTString()  + '<br/>');
+	document.writeln( d.toDateString()  + '<hr/>');
+	
+/* 
+	var today = new Date();
+
+	today.setMonth( today.getMonth() + 3 ); getMonth = n달을 나타냄 
+	today.setDate( today.getDate() + 20 ); // setDate = n일을 나타냄
+	document.writeln( today.toDateString()  + '<br/>');
+*/	
+	
+	
+	//  ---------------------------------------------------------
+	// 날짜 비교
+	const date1 = new Date('2024-10-21');
+	const date2 = new Date('2024-10-22');
+	
+	console.log( date1 > date2 );
+	console.log( date1 >= date2 );
+	console.log( date1 < date2 );
+	console.log( date1 <= date2 );
+	// console.log = 실행 후 개발자 모드 들어간 뒤 console로 확인하기
+	
+	
+	// [중요] 
+	const date3 = new Date('2024-10-21');
+	const date4 = new Date('2024-10-21');
+	console.log( date3 === date4);
+	console.log( date3 == date4);
+	console.log( '>' + date3 );
+	console.log( '>' + date4 );
+	// 값을 추출하면 같은 날이 나오긴 하지만 객체이기 때문에 가르키는(해당하는) 주소가 다르기 때문에 비교(>,<,==,===)를 하게 되면 false가 나온다.
+	
+	console.log( date3.getTime() == date4.getTime() ); 
+	// ====> 때문에 비교를 하고 싶으면 날짜를 뽑아내는 단축어 getTime()을 사용하여 날짜를 뽑아 낸 뒤 비교 (==,>,<)를 해준다.
+	
+	
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

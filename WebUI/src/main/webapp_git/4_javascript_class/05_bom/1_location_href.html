@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="euc-kr">
+<title> window 예제 </title>
+<script type="text/javascript">
+window.onload = function(){
+	
+	var choose = document.getElementById('chooseSite');
+	choose.onchange  = function(){
+		// alert('ok');
+		
+
+		/*
+		1. 선택한 옵션의 값(value)을 얻어온다.
+		2. location 객체의 href 프로퍼티에 url을 지정
+		*/
+
+// 		alert(choose.value); // 누른 셀의 밸류 값을 가져와 팝업으로 띄움
+	
+/* 		function test(){
+			location.href = choose.value; // location = href(주소링크)로 이동해줌
+		}
+		
+		// test(); // 함수를 호출 -> 호출하지 않으면 21행 함수 실행 안함.
+		
+		// 정해진 시간 후에 호출하고 싶을 때
+		window.setTimeOut(test, 2000); // ( test(), ____ )처럼 test()를 쓰면 바로 호출 된다. setTimeOut은 지정한 시간 뒤 함수를 호출하는 것이므로 (test,2000)을 사용하여
+										// 2초 뒤에 실행하게 함
+ */		
+
+		//------------------------21행~28행을 간략하게 쓰면 34~38행처럼 된다.--------------------------------
+		// 정해진 시간 후에 호출하고 싶을 때
+		window.setTimeOut(
+							function test(){
+							location.href = choose.value;
+							}, 2000); 
+		// ( test(), 2000) 이 상태의 test()자리에 21행의 function test(){}를 넣어 식을 간략하게 표현함
+		
+	};	  
+	
+}
+</script>
+</head>
+<body>
+	<form name="frm">
+		<h1> 이동하길 원하는 페이지를 선택하세요 </h1>
+		<select name="chooseSite" id='chooseSite'>
+			<option>골라 골라</option>
+			<option value="http://www.daum.net">다음네</option>
+			<option value="http://www.naver.com">네이바</option>
+			<option value="http://www.nate.com">네이또</option>
+		</select>
+	</form>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- 
+	자기를 열어준 창을 제어할려면? opener
+ -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 여기가 원래 창 </title>
+</head>
+<body bgcolor="#ddddff">
+	원하는 사이트를 선택하여 주시면 넘어갈걸요?
+	<input type = 'button' id='btn' value='팝업창으로 데이터 전달'>	
+	
+	<script type="text/javascript">
+		//3_2_window_opened_window.html 창을 열기
+		
+// 		var winObj = window.open('3_2_opened_window.html', 'newWin', 'width=240 height=170');
+		winObj = window.open('3_2_opened_window.html', 'newWin', 'width=240 height=170');
+		
+		var btn = document.getElementById('btn');
+		btn.onclick = function(){
+			winObj.frm.temp.value = 'HELLO';
+			// 본판에서 팝업창을 갖고 있는 방법 = 본판을 갖고 있으면 됨. 여기선 winObj.가 그 역할을 함
+		};
+		
+			
+	</script>
+</body>
+</html>

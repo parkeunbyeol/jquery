@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>06_SimpleForm</title>
+</head>
+<body>
+	<!-- @@@@@ 사용자의 입력값과 선택값으 서버로 전송하려면 form 태그 안에 있어야 함 -->
+	<!-- 일반적으로 프론트엔드(브라우저)에서 요소를 찾을 때는 아이디, 클래스명으로 찾음 
+		서버에서 날리고 싶으면 반드시 name이 있어야함/ id는 이름 중복안됨 class는 ㄱㅊ-->
+	<!-- 서버에서 클라이언트에서 보낸 값을 받을 때는 name값으로 찾음 -->
+	<!-- 웹에서 method : 데이타 전송 방식 (get/post) method 따로 적지 않으면 기본값으로 method=get으로 취급해준다. 
+		get방식을 사용하게 되면 url창에 입력한 값 모두 보여주면서 데이터 서버에 넘겨줌
+		post 방식은 url창에 보여지지는 않지만 데이터는 잘 넘겨준다-->
+	<form action='server.jsp' method='post'>
+		<fieldset>
+			<legend>회원가입</legend>
+			<ol>
+				<li>
+					<label for='irum'>이름</label> 
+					<input id='irum' name='irum' class='irum' type='text'> 
+					<!-- 이게 사용자 입력하는 것/반드시 form태그(<form>) 안에 있어야함 ex)네이버 카페에 글을 쓴 데이터를 네이버 서버에 보내기-->
+				</li>
+				<li>
+					<label for='gender'>성별</label>
+					<input id='gender' type='radio' name='gender' value='male'>남자
+					<input id='gender' type='radio' name='gender' value='female' checked="checked">여자
+					<!-- checked 설정시 기본값으로 설정되어 나옴 =checked 하는 게 권장하는 거이긴 함. 하지만 필수는 아님-->
+					
+				</li>
+				<li>
+					<label for='job'>직업</label>
+					<select id='job' name='job'> <!-- name 없으면 url창에 데이터 넘어가는 표시 없음 -->
+					<!-- 자바에서 combobox가 select -->
+						<option>개발자</option>
+							<!-- combobox에서 선택하는 선택지가 option -->
+						<option>코더</option>
+						<option selected>프로그래머</option><!--selected 입력시 선택되어져 나옴 얘도 ='selectd'가 기본이지만 필수아님 -->
+					</select>
+				</li>
+				<li>
+					<label for='hobby'>취미</label>
+					<input id='sleep' 	type='checkbox' name='hobby' value='잠자기'	>잠자기
+				    <input id='eat' 	type='checkbox' name='hobby' value='먹기'	>먹기
+				    <input id='breath' 	type='checkbox' name='hobby' value='숨쉬기'	>숨쉬기
+				    <input id='moung'	type='checkbox' name='hobby' value='멍때리기'	>멍때리기
+				</li>
+				<li>
+					<label for='love'>애인</label>
+					<input id='have'	type='radio' name='love' value='있다'	>있다
+					<input id='nohave'	type='radio' name='love' value='없다'	>없다
+				</li>
+				<li>
+					<input type='submit' value='가입하기'>
+					<input type='reset'><!-- 단순히 화면 초기화 하는 법 -->
+				</li>
+			</ol>
+		</fieldset>
+	</form>
+</body>
+</html>

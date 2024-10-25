@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> String 객체 </title>
+<script type="text/javascript">		
+
+/*	var str = '너의 삶 속에 나의 삶을 넣어 삶을 영위하자';
+
+	document.writeln( str.indexOf('삶') + '<br/>');		// 3
+	document.writeln( str.lastIndexOf('삶')+ '<br/>');	//  마지막으로 '삶'이 나오는 자리 순서 7
+	document.writeln( str.indexOf('삶을') + '<br/>');		//11
+	document.writeln( str.length + '<br/>');			// 24
+	
+	document.writeln( str.startsWith('삶') + '<br/>');	// '삶'으로 시작하니? false
+	document.writeln( str.endsWith('삶') + '<br/>');		// '삶'으로 끝나니? false
+	document.writeln( str.includes('삶') + '<hr/>');		// '삶'이 포함되어있니? true
+*/
+	
+/*	
+	var msg = '자바에서 웹프로젝트까지 열심히 하자!';
+	document.writeln( msg.charAt(3)+ '<br/>');	// 서
+	document.writeln( msg.slice( 5, 12 )+ '<br/>');	//  웹, 공백 /열 앞까지 
+	document.writeln( msg.substring( 5, 12 )+ '<br/>'); // 웹프로젝트까지  /열심히 슬러시 앞까지
+	document.writeln( msg.substr(5, 7 ) + '<br/>'); // 웹 과  공백
+	document.writeln( msg.split(' ')+ '<br/>'); // 띄어쓰기에서 자름
+	document.writeln( msg.concat('화이팅')+ '<br/>'); 
+	document.writeln( msg +  '<hr/>');
+	// 다시 확인해보기
+*/	
+/* 
+	var  text = '♡해yo';
+	document.writeln( text.length +  '<br/>');		
+	document.writeln( text.repeat(2) +  '<br/>'); // 두 번 반복
+	document.writeln( text.codePointAt(0) +  '<br/>');	// 9825 0 포인트의 코드 즉 = 하트 코드
+	document.writeln( String.fromCodePoint(9825) +  '<br/>');
+
+	document.writeln( String.fromCodePoint(128169) +  '<br/>'); // 💩코드
+ */	
+
+ const myname = '김삼순';
+ const myage = 22;
+ 
+ const message = '내 이름은' + myname + '입니다. 나이는 ' + myage + '입니다.';
+ document.writeln(message + '<hr/>');
+	
+// 문자열 템플릿
+// 			--> 따옴표가 아니라 역따옴표 (숫자 1 옆에 있는 얘)
+// 변수를 넣어 줄 때에는 ${ 변수명 }을 문자열 사이에 넣어주면 45행과 같이 출력된다.
+const message2 = `내 이름은 ${myname}입니다. 나이는 ${myage} 입니다.`;
+document.writeln(message2+ '<hr/>');
+
+ 
+ 
+   </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

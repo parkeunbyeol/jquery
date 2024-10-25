@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta charset="UTF-8">
+  <title>9_exercise.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- CDN방식: 네트워크 없이 실행하는 방법 -->
+<script type="text/javascript">
+$(function(){
+	
+	let bnt = $('#bInsert');
+	bnt.focus(function(){
+		bnt.click(function(){
+// 			alert('ok');
+			// 입력한 값 얻어오기
+			let irum 	= $('#name').val();
+			let nai 	= $('#age').val();
+			let phone 	= $('#tel').val();
+			let juso	= $('#addr').val();
+			
+			// tr 요소와 td 요소 생성
+			let tr = $('<tr/>')  // tr 요소
+			
+			let td1 = $('<td/>'); // td 요소
+			let td2 = $('<td/>');
+			let td3 = $('<td/>');
+			let td4 = $('<td/>');
+			
+			// 텍스트를 td에 붙이기
+			td1.text(irum);
+			td2.text(nai);
+			td3.text(phone);
+			td4.text(juso);
+
+
+			tr.append(td1)
+			tr.append(td2)
+			tr.append(td3)
+			tr.append(td4)// tr에 td 붙임
+			$('#listTable').append(tr); // 테이블에 tr붙임
+			
+			
+		});	
+	});
+	
+})
+
+
+</script>
+
+
+ </head>
+<body>
+
+<h2> 고객정보 입력 </h2>
+<form name="inForm" method="post">
+<table border = 1>
+	<tr>
+		<td width="80" align="center">Name</td>
+		<td width="50" align="center">Age</td>
+		<td width="100" align="center">Tel</td>	
+		<td width="250" align="center">Addr</td>
+	</tr>
+	<tr>
+		<td align="center"><input type="text" size="8" name="name" id="name"></td>
+		<td align="center"><input type="text" size="4" name="age" id="age"></td>
+		<td align="center"><input type="text" size="12" name="tel" id="tel"></td>
+		<td align="center"><input type="text" size="30" name="addr" id="addr"></td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center"> 
+			<input type="button" value="입력" id='bInsert' >
+		</td>
+	</tr>
+</table>
+<hr>
+<h2> 고객정보 목록보기  </h2>
+<table border='1' id="listTable">
+	<tr>
+		<td width="80" align="center">Name</td>
+		<td width="50" align="center">Age</td>
+		<td width="100" align="center">Tel</td>	
+		<td width="250" align="center">Addr</td>
+	</tr>
+</table>
+
+</form>
+</body>
+</html>

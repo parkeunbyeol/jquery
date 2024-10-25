@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 02_html5_경로연습.html </title>
+</head>
+<body>
+
+ <h2>절대경로</h2>
+ <ul>
+ 	<li><a href='/WebUI/media/horse.mp3'>음악파일</a>
+ 	<li><a href='/WebUI/media/IU.mp4'>동영상파일</a>
+	<li><a href='/WebUI/images/sample/sensitive.jpg'>이미지파일</a>
+	<li><a href='/WebUI/1_html5_class/02_html5_list.html'>웹페이지</a>
+ </ul>
+ <hr/>
+ <h2>상대경로</h2>
+ <ul>
+ 	<li><a href='../media/horse.mp3'>음악파일</a>
+ 	<li><a href='../media/IU.mp4'>동영상파일</a>
+	<li><a href='../images/sample/sensitive.jpg'>이미지파일</a>
+	<li><a href='./02_html5_list.html'>웹페이지</a> 
+	<!-- 같은 폴더 안에 다른 파일을 열려면 ..이 아니라 . 사용 , 왜냐면 .=자기 폴더라는 뜻 -->
+ </ul>
+ 
+ <hr/>
+ <h3>이 페이지에 지정하기</h3>
+ <img src="/WebUI/images/sample/sensitive.jpg'" alt="">
+ <img src='../images/sample/sensitive.jpg'>
+ 
+ <hr/>
+ <audio controls>
+  <source src="../media/horse.mp3" type="audio/mpeg">
+	Your browser does not support the audio element.
+</audio>
+
+<hr/>
+ <audio controls autoplay>
+  <source src="../media/horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<hr/>
+<video width="600" height="400" autoplay>
+  <source src="../media/IU.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+ <!-- 오토플레이 정책상 버전에 따라 적용 안됨. autoplay옆에 mute붙이면 음소거로 자동재생 되긴함 -->
+ 
+ <hr/>
+ <iframe src='http://www.nate.com' width='600' height=600></iframe>
+ <!-- 네이버는 막힘 -->
+ <iframe src='./02_html5_list.html' width='600' height=600></iframe>
+ <!-- 본인 파일 표시하는 .은 생략 가능함 -->
+ 
+</body>
+</html>

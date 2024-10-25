@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Javascript 객체지향  - 상속 </title>
+</head>
+<body>
+	<script>
+		// 부모클래스
+		var Animal = function(){ };
+		Animal.prototype = {
+			sound : function(){
+				document.writeln('울부짖다 <br/>');
+			},
+			move : function() {
+				document.writeln('동물은 움직인다 <br/>');
+			}
+		};
+
+		// 자식클래스
+		var Dog = function(){};	// Dog는 대문자로 시작 -> 클래스로 만들었다는 의도
+		Dog.prototype = new Animal(); // Animal 객체를 계승(상속) -> 부모 클래스를 상속 받는 자식 클래스
+
+		var dog = new Dog();
+		dog.sound();		// 자식이 부모클래스의 함수를 호출함 -> 에러안남 = 사용 가능
+		dog.move();			// 자식이 부모클래스의 함수를 호출함 -> 에러안남 = 사용 가능
+		
+		// 오버라이팅 (overriding)
+		Dog.prototype.sound = function(){ // 부모 클래스에 있는 함수를 쓰므로 prototype 사용
+				document.writeln('멍멍 짓다<br/>');
+		}
+		dog.sound(); // -> 멍멍짓다 나옴
+		
+		// Human 클래스 - Animal 상속
+		// 	 move() : '인간은 달린다' 수정
+		// 	 walk() : '인간은 두발로 걷는다' 추가
+		
+		
+		var Human = function(){};		// 클래스 생성
+		Human.prototype = new Animal();	// 상속관계 맺음
+		
+		var human = new Human();		// human이라는 객체를 생성
+		
+		Human.prototype.move =  function(){
+					document.writeln('인간은 달린다 <br/>');	
+				}
+				
+		Human.prototype.walk = function(){
+						document.writeln('인간은 두발로 걷는다 <br/>');
+					}		
+		
+		human.sound();
+		human.move();
+		human.walk();
+		
+		
+	</script>
+</body>
+</html>

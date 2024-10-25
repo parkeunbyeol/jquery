@@ -1,0 +1,15 @@
+
+
+[1] 차이점
+
+	- mouseenter / mouseleave
+	- mouseover / mouseout
+
+
+[2] $(this)와 this 차이점
+
+​
+
+[3] find() / filter() 차이점 
+
+​

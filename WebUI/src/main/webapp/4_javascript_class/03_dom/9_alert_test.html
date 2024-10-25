@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Alert Test </title>
+<script type="text/javascript">
+
+	window.onload = function(){
+		
+		// 1. alert
+		window.alert('이 페이지는 http://ictedu.atosoft.net 으로 이사갑니다.');
+// 		window.location.href='http://ictedu.atosoft.net';
+			// 원래는 11행이 정석임
+			// alert는 원래 window객체 안에 있는 거였음. 그래서 window.alert를 사용하는데 window 없애도 13행 처럼 괜찮음
+// 		location.href='http://ictedu.atosoft.net';
+// 		window.location = 'http://ictedu.atosoft.net';
+			//  .href 없어도 작동됨 
+		
+			
+		// 2. confirm = yes or no 로 선택할 수 있음
+		var result = confirm('이 페이지는 이사갑니다. \n이동하시겠습니까?');
+			// 확인 = true 나옴 . 취소 = false나옴
+// 		if(result){
+// 			location = 'http://ictedu.atosoft.net';
+// 		}
+// 		 true 안써도돼? ㅇㅇ 그냥 ()안에만 적어주면 true가 디폴트임
+		
+	
+		// 3. prompt : 입력하기.
+		var result = prompt('원하는 사이트를 정확히 입력하세요');
+		location.href = result;
+	}
+
+</script>
+</head>
+<body>
+이 사이트는 조만간 운영하지 않습니다.
+</body>
+</html>

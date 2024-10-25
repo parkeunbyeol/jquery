@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#tbl {
+	border: 2px solid black;
+	background: #f4faad;
+}
+
+.first {
+	background: #a5cbf0;
+	
+}
+
+td {
+	width: 100px;
+	height: 60px;
+	text-align: center;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 변수와 범위</title>
+	<script>
+
+	// 1. 글로벌 변수와 지역 변수
+/* 	var scope = '글로벌변수';
+	function getValue(){
+		var scope = '지역변수';
+		return scope;
+	}
+	document.write('1>' + getValue() + '<br/>'); // 지역변수 나옴 -> 함수 안에 있는 11행의 scope는 지역변수가 나옴
+	document.write('2>' + scope + '<br/>');		// 글로벌변수 나옴  -> 함수 밖으로 나온 scope는 값이 없어지므로 9행에 있는 글로벌 변수가 나옴
+ */	
+	// 2. [권장하지 않음] var 생략가능 => 글로벌 변수로 취급
+/* 	scope = '글로벌변수';
+	function getValue(){
+		scope = '지역변수';
+		test = '테스트';
+		return scope;
+	}
+	document.write('1>' + getValue() + '<br/>'); // 지역변수 나옴
+	document.write('2>' + scope + '<br/>');		 // 지역변수 나옴 -> var를 안쓰면 18행에 있는 기존의 scope인 글로벌 변수가 20~21행을 진행되면 지역변수로 값이 덮여져 버린다.
+	document.write('3>' + test + '<br/>');	     // 테스트 나옴
+ */	
+
+	// 3. 지역 변수는 반드시 var 선언
+	//			=> 지역변수는 반드시 함수 앞단에 선언하기
+/* 
+		[호이스팅 : 끌어올리기]
+				
+*/
+/* 	scope = '글로벌변수';
+	function getValue() {
+				
+		document.write('0>' + scope + '<br/>');	  		
+		var scope = '지역변수';		
+		return scope;
+	}
+	document.write('1>' + getValue() + '<br/>');
+	document.write('2>' + scope + '<br/>'); 	
+ */	
+ 
+/*  // 변수 선언 앞에 하기
+	
+	scope = '글로벌변수';
+	function getValue() {
+		
+		var scope = '지역변수';
+		document.write('0>' + scope + '<br/>');	  	
+		return scope;
+	}
+	document.write('1>' + getValue() + '<br/>');
+	document.write('2>' + scope + '<br/>'); 	
+	
+*/	
+
+
+	// 4. var 지역변수는 함수 블록에서 유효하다
+	function test(){
+		var a = 10;
+	}
+// 	document.write('a=' + a +'<br/>'); // -> 에러남
+
+	if(true){
+		var b = 20;
+	}
+	document.write('b=' + b + '<br/>');
+	
+	for( var i = 0; i<3 ; i++){			// 
+		
+	}
+	document.write('i=' + i + '<br/>'); 
+
+	for( var i = 0; i<3 ; i++){
+		
+	}
+	document.write('i=' + i + '<br/>');
+	
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 리스너 연결 </title>
+
+<script type="text/javascript">
+window.onload = function(){
+	
+	var btn = document.getElementById('btn');
+	
+	// btn.에서 click이벤트가 발생하면 function함수 동작함
+	btn.addEventListener( 'click', function(){
+		alert('확인3');
+	} );
+	
+}
+
+</script>
+
+
+ </head>
+ <body>
+	<input type='button' value='눌러'  id='btn' />
+ </body>
+</html>

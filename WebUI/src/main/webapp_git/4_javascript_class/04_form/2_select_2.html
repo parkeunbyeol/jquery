@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 폼 예제 2</title>
+</head>
+<script type="text/javascript">
+window.onload = function(){
+//  	var up = document.querySelector('#up');
+//  	var down = document.querySelector('#down');
+	
+// 		up.onclick = function(){		
+// 		}
+	
+// 		down.onclick = function(){		
+// 		}
+
+// 	document.getElementById('up').onclick = function(){
+// 		var idx = frm.play.selectedIndex;
+// 		var opt = frm.play.options;	// name이 frm 안에 있는 play 안에 있는 option들이기 때문에 options가 된다. opt는 옵션들(options)중의 하나이기 때문에 배열로 받아짐
+	
+// 		if(idx>0){	// 인덱스 없으면 맨위로 올려져 있는 상태에서 더 올려버리면 에러가 난다.
+// 			var temp = opt[idx].text; // 내가 선택한 option의 인덱스를 temp에 저장
+// 			opt[idx].text = opt[idx-1].text; // 내가 선택한 옵션을 업버튼을 이용해서 리스트의 위로 올리면 인덱스 값이 줄어든다. up 버튼 한번에 idx 값도 -1씩됨.
+// 			opt[idx-1].text = temp;
+// 			opt[idx-1].selected = true;	// 내가 선택한 옵션을 표시해주고 계속 위로 올려줌
+// 		}
+// 	}// end of function up
+	
+// 	document.getElementById('down').onclick = function(){
+// 		var idx = frm.play.selectedIndex;
+// 		var opt = frm.play.options;
+		
+// 		if(idx<5){ 				// 6보다 작은 건 안된다. 왜냐면 인덱스가 0부터 5까지 있긴 하지만 마지막 5번째는 맞바꿀 수 없으므로 
+// 			var temp = opt[idx].text;
+// 			opt[idx].text = opt[idx+1].text;
+// 			opt[idx+1].text = temp;
+// 			opt[idx+1].selected = true;
+// 		}
+// 	} // end of function down
+
+	document.querySelector('#up').onclick = function(){
+		var idx = document.frm.play.selectedIndex;
+		var opt = document.frm.play.options;
+		var len = opt.length;
+		var temp = opt[idx].text;
+
+			opt[idx].text = opt[(idx+len-1)%len].text;
+			opt[(idx+len-1)%len].text = temp;
+			opt[(idx+len-1)%len].selected = true;
+
+		/* document.frm.play.selectedIndex--; */
+	}
+
+	document.querySelector('#down').onclick = function(){
+		var idx = document.frm.play.selectedIndex;
+		var opt = document.frm.play.options;
+		var len = opt.length;
+		var temp = opt[idx].text;
+			
+			opt[idx].text = opt[(idx+1)%len].text;
+			opt[(idx+1)%len].text = temp;
+			opt[(idx+1)%len].selected = true;
+
+		}
+
+
+}
+
+
+</script>
+<body>
+
+내가 제일 좋아하는 놀이 순서대로 한다면 <br>
+
+<form name="frm">
+<select name="play" size="8"> <!--  20행에 size= '8'이 없으면 콤보박스가 되고, 있으면 list형식으로 됨. mutiple붙이면 다중선택 가능  -->
+	<option selected> 숨쉬기 </option>
+	<option> 밥먹기 </option>
+	<option> 그냥있기 </option>
+	<option> 잠자기 </option>
+	<option> 술먹기 </option>
+	<option> 멍때리기 </option>
+</select> <br>
+
+<input type="button" id='up'	value="▲"><br><br>
+<input type="button" id='down'	value="▼"><br><br>
+</form>
+
+</body> 
+</html>

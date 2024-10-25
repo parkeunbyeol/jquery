@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 00_object.html </title>
+
+<!-- 함수도 리터럴이다 -->
+
+<script type="text/javascript">
+
+	
+/*	객체리터럴
+ * 		`장점 : 별도의 클래스 구조 없이 객체 작성 가능하고 구성이 자유롭다
+ 		`단점 : 구조가 정의한 적이 없다는 것은 구조 파악이 어렵다 ( 재사용이 어렵다 )
+ 		
+ */
+	// 클래스 멤버 변수 안에 있는 변수는 var, let, const 등의 function은 사용하지 않는다.
+// let member = {
+//  			name : '홍길동',
+//  			birth : '2000-01-01',
+//  			output : function(){
+//  				return this.name + '/생일:' + this.birth;
+//  			}	 			
+//  			 output(){
+//  				return this.name + '/생일:' + this.birth;
+//  			} / // 21~22행과 같은 함수
+//  		};
+
+// document.write( member.output() );
+// document.write( member['output']() ); // 대괄호[]를 이용하여 호출하는 방법.
+
+
+let obj1 = {
+			name : '홍길순',
+			age  : 44	
+			};
+obj1.display = function(){
+				 return this.name + "님" + this.age + "살입니다<br/>";
+				}
+document.write(obj1.display() );
+// -> obj1은 다 만들어 놓고 display 사용
+
+
+// let obj2 = {};
+let obj2 = new Object(); // 44행과 똑같은데 요즘 쓰는 방법
+obj2.name = '홍길자';
+obj2.age = 33;
+obj2['display'] = function (){
+					return this.name + '님 ' + this.age + '살입니다<br/>';
+				  }
+document.write( obj2['display']() );
+// 대괄호를 이용하여 document할 때 대괄호 뒤에 ()괄호 꼭 빼먹지 말기
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

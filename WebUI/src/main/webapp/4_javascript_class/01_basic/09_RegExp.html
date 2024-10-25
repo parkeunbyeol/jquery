@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> RegExp 객체</title>
+<script type="text/javascript">
+var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/gi;
+// var p = /http(s)?:\/\/([\w]+\.)+[\w]+(\/[\w.\/?%&=]*)?/gi;     - url에 하이픈(-) 없이
+//var p = new RegExp('http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?','gi');
+var str = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+str += ' 또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+
+document.write(str + '<hr/>');
+
+//match() 함수 , var p와 str과 일치하는 부분을 찾아서 보여줌
+var result = str.match(p);
+for(var i = 0; i < result.length; i++) {
+	document.write( result[i] + '<br/>');
+}
+
+// 매치 성공여부 검증 , 있는지 검색해서 어디인지 인덱스로 알려줌
+var one = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+var two= '또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+
+document.write( one.search(p) + '<br/>');
+document.write( two.search(p) + '<br/>');
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+<!--  참고 https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D -->

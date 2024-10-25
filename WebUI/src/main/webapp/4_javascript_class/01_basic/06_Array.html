@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Array 객체 </title>
+<script type="text/javascript">		
+
+// 1. 배열의 함수 확인
+
+	var arr = ['김태희','송혜교','전지현','김고은','임수정'];
+	document.writeln( arr + '<br/>');
+	document.writeln( arr.join('/') + '<br/>'); // 사이사이에 '/' 넣어줌
+	document.writeln( arr.join(' or ') + '<br/>'); // 사이사이에 'or' 넣어줌
+	document.writeln( arr.slice(3) + '<br/>'); // 3번째부터 잘라서 보여주
+	document.writeln( arr.slice(1,3) + '<br/>'); // 1번째부터 3번째 앞까지!!! 앞!!! 자바의substring 과 비슷
+	
+	
+	document.writeln( arr.reverse() + '<br/>'); // 거꾸로 출력
+	document.writeln( arr + '<br/>');  //  --> 원본 수정 여부 -> 확인해보니 수정됨
+	document.writeln( arr.sort() + '<br/>'); // 오름차순으로 정렬
+	document.writeln( arr + '<br/>'); // -> 원본수정여부 -> 원본 수정됨
+	
+	var temp  = ['이도현', '변우석'];
+	document.writeln( arr.concat(temp) + '<br/>'); // 뒤에 temp 붙이기
+	document.writeln( arr + '<br/>'); // --> 원본 수정 여부 확인 -> 확인해보니 원본 유지 됨
+	
+	//[주의]
+	var su = [5, 15, 20, 9];
+	document.writeln( su.sort() + '<br/>'); // 15로 보지 않고 앞자리 1만봄
+	document.writeln( su + '<br/>'); // --> 원본 수정 여부 문자열로 취급
+	
+	// 2. 배열을 스택과 큐로 이용하기
+	// 	stack : LIFO Last In Frist Out 나중에 들어 간 얘를 먼저 뽑아주기
+	//	queue : FIFO First In First Out 먼저 들어간 애를 먼저 뽑아줌
+	
+	
+	// pop = stack , 좁으니까 먼저 들어간사람 팝 밀어버리기
+		var data = [];
+		data.push('박서준');
+		data.push('현빈');
+		data.push('박보검');
+		document.writeln( data.pop() + "<br/>");
+		document.writeln( data.pop() + "<br/>");
+		document.writeln( data.pop() + "<br/>");
+		document.writeln( data.pop() + "<hr/>");
+	
+	// queue = shift	
+		var data2 = [];
+		data2.push('박소담');
+		data2.push('김고은');
+		data2.push('이지은');
+		document.writeln( data2.shift() + "<br/>");
+		document.writeln( data2.shift() + "<br/>");
+		document.writeln( data2.shift() + "<br/>");
+			
+	// 3. es6
+
+	
+	
+	
+	
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

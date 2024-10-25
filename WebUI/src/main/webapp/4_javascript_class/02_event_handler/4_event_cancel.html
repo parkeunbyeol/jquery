@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 처리 취소</title>
+
+<!-- 보통 style은 script앞에 쓴다.  -->
+
+<style type="text/css">
+
+	#outer { background: pink; }
+	
+	#inner { background: violet; }
+
+</style>
+
+<script>
+	/* 버블링 : 이벤트의 부모요소에 전달되는 단계
+	
+			- stopPropagation() : 이벤트 전달 취소
+			- preventDefault() : 이벤트 본래의 동작 취소
+	*/
+
+window.onload = function(){
+	
+	var outer = document.getElementById('outer');
+	var inner = document.getElementById('inner');
+	
+	outer.onclick = function(){
+		alert('outer 영역 이벤트 발생');
+	}
+	
+	inner.onclick = function(evt){
+		alert('inner 영역 이벤트 발생');
+		evt.stopPropagation();
+		evt.preventDefault();
+		// 35~36행은 버블링을 막기 위해서 해줌. 원래는 inner부분을 누르면 inner 영역 이벤트 발생만 떠야하는데, 
+		// 버블링으로 인해 outer영역 이벤트 발생 까지 뜬다.이를 버블링이라고 함.
+	}
+				
+}
+
+//  	[참고] 자바스크립트의 함수의 특성
+	
+// 	// 함수 선언
+// 	function method(a, b) {
+	
+// 	}
+	
+// 	// 함수 호출
+// 	method(1,2);
+// 	method(1,2,3); // --> 자바에서는 에러지만 스크립트는 에러아님. 그냥 1,2 까지는 a,b를 통해 받고 3은 안 받고 끝냄
+// 	method(1); // --> 이것도 자바에서는 오류지만 스크립트에서는 a=1을 받고 b=undifined로 취급됨.
+	
+	// ==> 즉 인자를 넘길 때나 받을 때 필요할 때에만 받거나 줄 수 있음
+
+
+	
+	
+</script>
+</head>
+<body>
+	<div id='outer'>
+		<p>바깥 부분</p>
+		<div id='inner'>
+			<a href='https://daum.net'>안쪽부분</a>
+		</div>
+	</div>
+</body>
+</html>

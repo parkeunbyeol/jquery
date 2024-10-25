@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript">
+/*  콜백함수란? 함수가 다른 함수의 파라메터로 전달되는 함수
+		 			콜백함수는 함수가 실행되는 중간에 호출되어 상태 정보를 저장하거나 결과 값을 처리할 때 사용
+ */
+ 
+/* 		//------ 함수 선언
+		  function add(a,b){
+			
+		 }
+		
+		//------ 함수 호출
+		add(10,20); 
+*/
+
+// [1] 함수가 다른 함수의 인자가 될 수 있다.
+
+// function add(a,b,c){
+// 	var result = a+b;
+// 	c(result);
+// }
+
+/* 
+let func = function(result){
+	document.write('결과 :' + result) ;
+}
+add(10,20,func);	// 함수도 인자로 들어 갈 수 있다.
+*/	
+
+
+//[2] 함수 변수명은 생략 가능 _fucn 자리에 function 옴
+
+// add(10,20,function(result){
+// 		document.write('결과 :' + result) ;
+// });	//24~28행의 내용과 같다. 28행의 func 자리에 24행의 fucntion~~ 을 넣어서 길이를 짧게 만들어줌
+
+
+// [3]
+/* function add(a,b,c){
+	var result = a+b;
+	c(result);
+
+	// var msg = a + '+' + b + '=' + result;
+	var msg = `${a} + ${b} = ${result}`;
+	return msg;
+}
+
+var returnVar = add(10, 20, function(result){
+		document.write('2.결과 : ' + result + '<br/>');
+});
+
+document.write('리턴받은 함수 결과 : ' + returnVar + '<hr/>');
+ */
+
+ 
+// [4] 함수가 리턴도 가능함 
+function add(a,b,c){
+	var result = a+b;
+	c(result);
+
+	var returnFunc = function(){
+		var msg = `${a} + ${b} = ${result}`;
+		return msg;
+	 }
+	 return returnFunc;
+	
+}
+
+var returnVar = add(10, 20, function(result){
+		document.write('2.결과 : ' + result + '<br/>');
+});
+
+document.write('리턴받은 함수 결과 : ' + returnVar() + '<hr/>'); // returnVar() = 호출
+
+
+ 
+</script>
+</head>
+<body>
+
+</body>
+</html>

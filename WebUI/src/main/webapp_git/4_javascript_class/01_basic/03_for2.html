@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>03_for2.html</title>
+
+<script type="text/javascript">
+
+// 바깥쪽 반복문 = 행, 안 쪽 반복문=열 
+document.write('<table border="2">');	
+	var n = 1;		
+		for( var j = 0 ; j < 5 ; j++){
+		document.write('<tr>');	
+			for( var i = 0 ; i<5 ; i++){
+				document.write('<td>' + ((i*5)+j) +'</td>');
+				n++;
+			} // end of var i	
+		document.write('</tr>');
+		} // end of var j	
+document.write('</table>');
+	
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

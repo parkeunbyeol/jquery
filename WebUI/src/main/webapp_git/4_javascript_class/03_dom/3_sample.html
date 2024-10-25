@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 3_sample.html </title>
+
+<!-- 
+	[1] 아이디로 찾기
+		` getElementById('아이디명')
+		` querySelector('#아이디명')
+
+	[2] 클래스명으로 찾기	
+		` getElementByClassName('클래스명')
+		` querySelector('.클래스명')
+		` querySelectorAll('.클래스명')
+		
+	[3] name으로 찾기 - 폼 안에 있는 경우 (있어야 가능)
+		` 폼이름.네임명
+ -->
+
+<script type = "text/javascript">
+
+window.onload = function(){
+		// '추가' 버튼이 눌렸을 때
+	let btn = document.querySelector('#btn');
+	btn.onclick = function(){
+		var irum = document.querySelector('#irum').value;
+		var dept = document.querySelector('.dept').value;
+		
+		var tbl = document.querySelector('#tbl > tbody');
+			
+			// 태그 만들기
+			var tr = document.createElement('tr');
+			// tr이라는 엘리먼트(요소)를 만든다.
+			var td1 = document.createElement('td');
+			var td2 = document.createElement('td');
+			// tb라는 엘리먼트를 만든다. 여기서 () 안에는 td1 td2이런 거 안됨->왜냐면 진짜 tr td 태그를 만드는 거니까
+	
+			// 입력값을 TextNode 만들기
+			var text1 = document.createTextNode(irum);
+			var text2 = document.createTextNode(dept);
+	
+			// 붙이기 
+			// <td>텍스트</td> -> 이런 식으로 td1에 text1을 붙일 예정
+			td1.appendChild(text1); // <td>홍길동</td>
+			td2.appendChild(text2); // <td>IT</td>
+			// td1, td2에 appendChild(자식을 만든다)를 사용하여 text1, text2를 각각 붙인다.
+			
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			// 45~46행에 작업한 것을 tr에 붙인다 (자식생성)
+			
+			tbl.appendChild(tr);
+			// 또 49~50행에 작업한 것을 tbl에 붙인다.(자식생성)
+	}
+}
+
+</script>
+
+</head>
+<body>
+
+이름 <input type='text' id='irum'><br/>
+부서 <input type='text' class='dept'><br/>
+<input id='btn' type='button' value='추가'> 
+
+<hr/>
+<h2> 우리 직원 명단 </h2>
+
+<table border='2' id='tbl'>  
+	<thead>
+		<tr>
+			<td>이름</td>
+			<td>부서</td>
+		</tr>
+	</thead>
+	<tbody>
+	
+	</tbody>
+
+</table>
+
+
+</body>
+</html>

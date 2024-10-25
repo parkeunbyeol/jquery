@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 07_array_func.html </title>
+
+<script type="text/javascript">
+
+/*  
+ 		배열.forEach( function (요소의 값, 인덱스 번호, 원배열){} )
+ */
+	var data1 = ['강', '김', '길'];
+	
+	data1.forEach( function( value, idx, array ) {		// forEach는 요소를(배열을) 하나씩 꺼내서 function에 넣는다...?
+				document.write( idx + ":" + value + "=>" + array + "<br/>");
+	} );
+	document.write('<hr/><hr/>');
+	
+/* 	var data1 = ['강', '김', '길'];
+	
+	var result = data1.forEach( function( value, idx, array ) {		// forEach는 요소를(배열을) 하나씩 꺼내서 function에 넣는다...?
+						document.write( idx + ":" + value + "=>" + array + "<br/>");
+						return value;
+					} );
+	document.write( result + '<hr/><hr/>' );
+
+	//**** forEach는 리턴 값이 없기 때문에 result를 출력하면 undefined가 나옴****
+*/
+	
+	data1.forEach( function(value, idx ) {
+		document.write( idx + ':' + value + '<br/>');
+	});
+	
+	document.write('<hr/><hr/>');
+	
+	/*   배열.map( function (요소의 값, 인덱스 번호, 원배열){} )   */
+	var data2 = [1, 2, 3, 4, 5];
+	// data2.map( function( value, idx, array ){} );
+	var result = data2.map( function(value) {
+		document.write(value + '<br/>');
+		return value*value;
+	});
+	document.write('결과:' + result);
+	
+	// map은 리턴 값이 있기 때문에 result를 출력하면 값이 나옴
+	
+	//--------------------------------------------forEach와 map의 차이는 리턴값이 있냐 없냐 차이. forEach는 리턴값이 없고, map은 있다.
+	
+</script> 
+
+
+
+</head>
+<body>
+
+</body>
+</html>

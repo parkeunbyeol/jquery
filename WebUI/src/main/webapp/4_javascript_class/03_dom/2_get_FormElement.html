@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Document 예제 </title>
+<meta charset="UTF-8">
+<style type="text/css">
+ body { 
+		background-color: rgb(255, 193, 193);
+		color: #000000;
+	} 	
+</style>
+
+<script type="text/Javascript">
+	window.onload = function(){
+		
+// 		var btn = document.getElementById('btn')
+// 		btn.onclick = function () {
+// 		}
+		
+    	document.getElementById('btn').onclick = function(){
+
+//			[1] id로 찾기
+//			var userName = document.getElementById('userName').value;
+//     		var userName = document.querySelector('#userName').value;
+//				 -> .value까지 해줘야 사용자가 입력한 값을 얻어올 수 있다. 
+//     		var result = document.getElementById('result');
+//  		result.innerHTML =  userName + '님 하윙';
+    		
+//     		[2] name 찾기 (단, form 태그 필요 / form 태그 없으면 사용 못함)
+//     		var irum = document.frm.username.value;
+    		var irum = document.forms[0].username.value; 
+    		// 31행은 그냥 forms를 사용하여 배열까지 생각해줌. 단순히 참고만
+    		var result = document.getElementById('result')
+    		var age = document.getElementById('age');
+// 			'age'가 id인 것을 var age에 저장한다.
+    		var age_attr = age.getAttribute('nai');
+//     		getAttribute(nai)는 속성을 얻어오는 단축어. 
+// 			nai 속성값(여기선 1000)을 getAttribute를 사용하여 얻어와 그걸 var age_attr에 저장한다.
+
+    		
+    		result.innerHTML = irum + '님 하윙' + age_attr + '살입니다.';
+    		
+//     		[3] classname 찾기 (배열로 떨어져서 잘 사용 안함)	
+// 			var cname = document.
+			
+    	}
+    }
+</script>
+</head>
+
+<body>
+	<!-- 폼태그 안에 있는 입력값은 서버로 전송할 수 있다  -->
+	<form name="frm">
+		<div id= 'age' nai='100'></div>
+		당신의 이름은? <input type="text" id='userName' name='username' size="20">
+		<input type="button" value="확인" id='btn'>
+   	</form>
+	<div id='result'></div>
+</body>
+</html>
+
+<!--  이벤트바인딩방식을 이벤트 핸들러 방식으로 변경 -->

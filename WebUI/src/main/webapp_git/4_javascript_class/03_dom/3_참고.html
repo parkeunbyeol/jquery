@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 3_참고.html </title>
+
+<script type="text/javascript">
+window.onload = function(){
+	var btn = document.querySelector('#btn');
+	var list = document.querySelector('#list');
+	var items = document.querySelectorAll('#list > li');
+	// items는 배열로 떨어짐 -> 아래에 <li>태그 3개임
+
+	btn.onclick = function(){
+// 		// [1] appendChild()
+// 		var litag = document.createElement('li');
+// 		var txt = document.createTextNode(new Date());
+		
+// 		litag.appendChild(txt); // = <li> new Date() </li>
+// 		list.appendChild(litag);
+	
+	
+		// [2] append ()
+		var litag = document.createElement('li');
+		litag.append(new Date());
+		list.append(litag);
+	};
+	
+	
+	for( let i = 0; i < items.length; i++ ){
+	// let은 지역 변수 = 블럭 벗어나면 아예 해제됨
+		items[i].onclick = function() { 
+				/*  
+					` 부모노드.removeChild(자식노드)
+					` 삭제할노드.remove()
+				*/
+				//list.removeChild(this);
+				// this = 이벤트가 발생한 놈 -> list에서 이벤트가 발생한(눌려진) 놈을 removeChild(자식을 지우다) 할 거임
+				this.remove();		
+				// 이벤트가 발생한 놈을.리무브 -> 눌려진 놈을 지울거다.	
+	}
+	}
+}
+
+
+</script>
+
+</head>
+<body>
+
+	<h2 id='btn'>웹프로그래밍</h2>
+
+	<ul id='list'>
+		<li>HTML</li>    
+		<li>CSS</li>
+		<li>JS</li>
+	</ul>
+
+</body>
+</html>
